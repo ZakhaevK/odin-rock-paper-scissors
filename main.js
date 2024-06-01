@@ -87,8 +87,6 @@ function playGame() {
   } else {
     console.log("You lost the game!");
   }
-
-
 }
 
 playGame();
