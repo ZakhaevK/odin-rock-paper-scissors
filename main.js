@@ -1,4 +1,14 @@
 // Generates a random computer choice of rock, paper, or scissors.
+let humanScore = 0;
+let computerScore = 0;
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection)
+
+
+
 function getComputerChoice() {
   const num = Math.random();
   let choice;
@@ -26,5 +36,41 @@ function getHumanChoice() {
   } else {
     console.log(`Invalid result "${query}", try again`);
     return 0;
+  }
+}
+
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice == computerChoice) {
+    console.log(`Both players chose ${humanChoice}, no score!`);
+  }
+
+  if (humanChoice == "rock") {
+    if (computerChoice == "paper") {
+      console.log("Paper beats rock, you lose!");
+      computerScore++;
+    } else if (computerChoice == "scissors") {
+      console.log("Rock beats scissors, you win!");
+      humanScore++;
+    }
+  }
+
+  if (humanChoice == "paper") {
+    if (computerChoice == "rock") {
+      console.log("Paper beats rock, you win!");
+      humanScore++
+    } else if (computerChoice == "scissors") {
+      console.log("Scissors beats paper, you lose!");
+      computerScore++;
+    }
+  }
+
+  if (humanChoice == "scissors") {
+    if (computerChoice == "rock") {
+      console.log("Rock beats scissors, you lose!");
+      computerScore++
+    } else if (computerChoice == "paper") {
+      console.log("Scissors beats paper, you win!");
+      humanScore++;
+    }
   }
 }
