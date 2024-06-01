@@ -1,14 +1,4 @@
 // Generates a random computer choice of rock, paper, or scissors.
-let humanScore = 0;
-let computerScore = 0;
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection)
-
-
-
 function getComputerChoice() {
   const num = Math.random();
   let choice;
@@ -74,3 +64,31 @@ function playRound(humanChoice, computerChoice) {
     }
   }
 }
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame() {
+  let round = 1
+  // Reset to 0 if adding functionality for replay
+  humanScore = 0;
+  computerScore = 0;
+  
+
+  while (round < 6) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    round++;
+    console.log(`Current score is Human: ${humanScore} | Computer ${computerScore}`);
+  }
+  if (humanScore > computerScore) {
+    console.log("You won the game!");
+  } else {
+    console.log("You lost the game!");
+  }
+
+
+}
+
+playGame();
