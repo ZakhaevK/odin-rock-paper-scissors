@@ -12,3 +12,19 @@ function getComputerChoice() {
   }
   return choice;
 }
+
+function getHumanChoice() {
+  let query = prompt("Rock, paper, or scissors?").toLowerCase();
+  console.log(query);
+
+  if (query == "r" || query == "rock") {
+    return "rock";
+  } else if (query == "p" || query == "paper") {
+    return "paper";
+  } else if (query == "s" || query == "scissors") {
+    return "scissors";
+  } else {
+    console.log(`Invalid result "${query}", try again`);
+    return 0;
+  }
+}
