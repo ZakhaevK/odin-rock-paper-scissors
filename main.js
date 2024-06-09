@@ -106,6 +106,7 @@ function checkScore() {
     winner.textContent = `The human player wins the match!`;
     resultDiv.appendChild(winner);
     resultDiv.appendChild(newGameButton);
+    disableButtons()
   }
 
   if (computerScore > 4) {
@@ -113,11 +114,24 @@ function checkScore() {
     winner.textContent = `The computer player wins the match!`;
     resultDiv.appendChild(winner);
     resultDiv.appendChild(newGameButton);
+    toggleButtons()
+    }
+    
   }
-}
 
 function newGame() {
   humanScore = 0;
   computerScore = 0;
   resultDiv.replaceChildren("A new game has begun");
+  toggleButtons()
+}
+
+function toggleButtons() {
+    buttons.forEach((button) => {
+      if (!button.hasAttribute("disabled")) {
+        button.setAttribute("disabled", true);
+      } else {
+      button.removeAttribute("disabled");
+    }
+  })
 }
